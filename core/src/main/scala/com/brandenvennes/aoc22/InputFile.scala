@@ -1,7 +1,6 @@
 package com.brandenvennes.aoc22
 
 import cats.syntax.all.*
-import cats.effect.Concurrent
 import cats.effect.kernel.Async
 import cats.parse.Parser
 import fs2.text
