@@ -4,10 +4,10 @@ lazy val core = project
   .settings(
     scalaVersion := scala3,
     libraryDependencies ++= Seq(
-      LibraryDependencies.FS2.core,
-      LibraryDependencies.FS2.io,
-      LibraryDependencies.Cats.Effect.core,
-      LibraryDependencies.Cats.Parse.core
+      FS2.core,
+      FS2.io,
+      Cats.Effect.core,
+      Cats.Parse.core
     )
   )
 
