@@ -6,7 +6,7 @@ import cats.parse.Parser
 import fs2.text
 import fs2.io.file.{Files, Path}
 
-object InputFile {
+object InputFiles {
   def parse[F[_], A](day: Int)(using F: Async[F], Parser: Parser[A]): F[A] =
     Files[F]
       .readAll(inputFilePathForDay(day))
@@ -20,7 +20,7 @@ object InputFile {
       }
 
   private def inputFilePathForDay(day: Int): Path =
-    Path(
-      s"./day-$day/src/main/resources/input"
-    )
+    Path("./") / "input-files" / s"day-$day.txt"
+
+
 }

@@ -16,3 +16,9 @@ lazy val `day-1` = project
     scalaVersion := scala3
   )
   .dependsOn(core)
+
+lazy val `day-2` =  project
+  .settings(
+    scalaVersion := scala3
+  )
+  .dependsOn(core)

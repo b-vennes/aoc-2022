@@ -1,10 +1,10 @@
 package com.brandenvennes.aoc22.day1
 
-import cats.syntax.all.*
 import cats.data.NonEmptyList
 import cats.parse.Numbers.digits
 import cats.parse.Parser
 import cats.parse.Rfc5234.lf
+import cats.syntax.all.*
 
 given Parser[Inventory] =
   for {
