@@ -1,8 +1,7 @@
-val scala3 = "3.2.0"
+ThisBuild / scalaVersion := "3.2.1"
 
 lazy val core = project
   .settings(
-    scalaVersion := scala3,
     libraryDependencies ++= Seq(
       FS2.core,
       FS2.io,
@@ -11,14 +10,6 @@ lazy val core = project
     )
   )
 
-lazy val `day-1` = project
-  .settings(
-    scalaVersion := scala3
-  )
-  .dependsOn(core)
-
-lazy val `day-2` =  project
-  .settings(
-    scalaVersion := scala3
-  )
-  .dependsOn(core)
+lazy val `day-1` = project.dependsOn(core)
+lazy val `day-2` =  project.dependsOn(core)
+lazy val `day-3` =  project.dependsOn(core)
