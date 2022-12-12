@@ -18,7 +18,7 @@ given parseRucksack: Parser[Rucksack] =
     )
 
 given parseGroup: Parser[Group] =
-  (parseRucksack <* lf)
+  (parseRucksack <* lf.?)
     .rep(3, 3)
     .flatMap(rucksacks =>
       Group
@@ -27,7 +27,7 @@ given parseGroup: Parser[Group] =
     )
 
 given parseRucksacks: Parser[NonEmptyList[Rucksack]] =
-  (parseRucksack <* lf).rep
+  parseRucksack.repSep(lf)
 
 given parseGroups: Parser[NonEmptyList[Group]] =
   parseGroup.rep

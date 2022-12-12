@@ -8,7 +8,7 @@ import cats.syntax.all.*
 
 given Parser[Inventory] =
   for {
-    stringNumbers <- (digits <* lf).rep
+    stringNumbers <- (digits <* lf.?).rep
     intParsingResults = stringNumbers.map(num => Either.catchNonFatal(num.toInt))
     values <- intParsingResults.traverse(_.fold(
       error => Parser.failWith(error.getMessage),
@@ -17,4 +17,4 @@ given Parser[Inventory] =
   } yield Inventory(values)
 
 given[A](using Parser: Parser[A]): Parser[NonEmptyList[A]] =
-  (Parser <* lf.rep0).rep
+  Parser.repSep(lf)

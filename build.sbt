@@ -13,3 +13,5 @@ lazy val core = project
 lazy val `day-1` = project.dependsOn(core)
 lazy val `day-2` =  project.dependsOn(core)
 lazy val `day-3` =  project.dependsOn(core)
+lazy val `day-4` =  project.dependsOn(core)
+lazy val `day-5` = project.dependsOn(core)

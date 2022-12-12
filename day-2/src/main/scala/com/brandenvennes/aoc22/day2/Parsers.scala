@@ -45,4 +45,4 @@ given parseRoundPart2: Parser[RoundPart2] =
     }
 
 given parseNonEmpty[A](using parseA: Parser[A]): Parser[NonEmptyList[A]] =
-  (parseA <* lf).rep
+  parseA.repSep(lf)
